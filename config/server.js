@@ -3,7 +3,7 @@ module.exports = ({ env }) => {
 
   if (env("SLS", null) === 'true') {
     if (process.env.NODE_ENV === 'production') {
-      url = ""
+      url = "https://031k7170cd.execute-api.us-east-1.amazonaws.com/dev/"
     } else {
       url = "http://localhost:3000/dev"
     }
