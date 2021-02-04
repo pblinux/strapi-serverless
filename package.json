@@ -4,24 +4,28 @@
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
-    "develop": "strapi develop",
-    "start": "strapi start",
     "build": "strapi build",
+    "develop": "npm run build && strapi develop",
+    "offline:admin": "SLS=true npm run build && ./script/post-build.sh && serve build/",
+    "offline:api": "SLS=true npm run build && sls offline",
     "strapi": "strapi"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "serverless-offline": "^6.8.0"
+  },
   "dependencies": {
+    "knex": "<0.20.0",
+    "serverless-http": "^2.7.0",
+    "sqlite3": "5.0.0",
     "strapi": "3.4.5",
     "strapi-admin": "3.4.5",
-    "strapi-utils": "3.4.5",
-    "strapi-plugin-content-type-builder": "3.4.5",
+    "strapi-connector-bookshelf": "3.4.5",
     "strapi-plugin-content-manager": "3.4.5",
-    "strapi-plugin-users-permissions": "3.4.5",
+    "strapi-plugin-content-type-builder": "3.4.5",
     "strapi-plugin-email": "3.4.5",
     "strapi-plugin-upload": "3.4.5",
-    "strapi-connector-bookshelf": "3.4.5",
-    "knex": "<0.20.0",
-    "sqlite3": "5.0.0"
+    "strapi-plugin-users-permissions": "3.4.5",
+    "strapi-utils": "3.4.5"
   },
   "author": {
     "name": "A Strapi developer"

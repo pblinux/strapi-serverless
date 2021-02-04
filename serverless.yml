@@ -1,0 +1,41 @@
+service: 
+  name: ${self:custom.NAME}
+useDotenv: true
+frameworkVersion: ">=1.48.1"
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: us-east-1
+  profile: pixela
+  environment:
+    ADMIN_JWT_SECRET: ${self:custom.ADMIN_JWT_SECRET}
+custom:
+  NAME: strapi-serverless
+  ADMIN_JWT_SECRET: ${env:ADMIN_JWT_SECRET, ''}
+package:
+  exclude:
+    - ./**
+  include:
+    - node_modules/**
+    - api/**
+    - config/**
+    - extensions/**
+    - plugins/**
+    - package.json
+    - app.js
+functions:
+  api:
+    handler: api.handler
+    memorySize: 1024
+    timeout: 24
+    events:
+      - http:
+          path: /
+          method: ANY
+          cors: true
+      - http:
+          path: /{any+}
+          method: ANY
+          cors: true
+plugins:
+  - serverless-offline
