@@ -8,7 +8,7 @@
     "develop": "npm run build && strapi develop",
     "offline:admin": "SLS=true npm run build && ./script/post-build.sh && serve build/",
     "offline:api": "SLS=true npm run build && sls offline",
-    "deploy:api": "./script/trim-node-modules.sh && sls deploy --verbose",
+    "deploy:api": "SLS=true ./script/trim-node-modules.sh && sls deploy --verbose",
     "strapi": "strapi"
   },
   "devDependencies": {
