@@ -16,13 +16,14 @@ package:
   exclude:
     - ./**
   include:
-    - node_modules/**
     - api/**
+    - app.js
     - config/**
     - extensions/**
-    - plugins/**
+    - node_modules/**
     - package.json
-    - app.js
+    - plugins/**
+    - server/**
 functions:
   handler:
     handler: server/handler.handler
