@@ -17,16 +17,15 @@ package:
     - ./**
   include:
     - api/**
-    - app.js
     - config/**
     - extensions/**
+    - handler.js
     - node_modules/**
     - package.json
     - plugins/**
-    - server/**
 functions:
   handler:
-    handler: server/handler.handler
+    handler: handler.handler
     # memorySize: 1024
     # timeout: 24
     events:
