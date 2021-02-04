@@ -25,7 +25,7 @@ package:
     - app.js
 functions:
   api:
-    handler: api.handler
+    handler: handler.handler
     memorySize: 1024
     timeout: 24
     events:
