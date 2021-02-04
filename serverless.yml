@@ -24,18 +24,15 @@ package:
     - package.json
     - app.js
 functions:
-  api:
-    handler: handler.handler
-    memorySize: 1024
-    timeout: 24
+  handler:
+    handler: server/handler.handler
+    # memorySize: 1024
+    # timeout: 24
     events:
       - http:
-          path: /
-          method: ANY
+          path: '/'
+          method: get
           cors: true
-      - http:
-          path: /{any+}
-          method: ANY
-          cors: true
+      - http: ANY {proxy+}
 plugins:
   - serverless-offline
